@@ -66,24 +66,7 @@ cc.Class({
     },
 
     start: function() {
-        this.scheduleOnce(function() {
-            this.test_cmd();
-        }.bind(this), 3);
-    },
 
-    test_cmd: function() {
-        // Enter
-        websocket.send_cmd(STYPE_TALKROOM, TalkCmd.Enter, {
-            uname: "blake" + Math.floor(1 + Math.random() * 10),
-            usex: 1,
-        });
-        // end
-
-        this.schedule(function() {
-            websocket.send_cmd(STYPE_TALKROOM, TalkCmd.SendMsg, "HelloWorld!");
-        }.bind(this), 3);
-        
-        // websocket.send_cmd(STYPE_TALKROOM, TalkCmd.Exit, null);
     },
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
