@@ -48,7 +48,8 @@ function broadcast_cmd(ctype, body, noto_user) {
 // 保存我们聊天室里面所有用户的
 var room = {};
 function on_user_enter_talkroom(session, body) {
-	if (!body.uname || !body.usex) {
+	if (typeof(body.uname) == "undefined"||
+	    typeof(body.usex) == "undefined") {
 		session.send_cmd(STYPE_TALKROOM, TalkCmd.Enter, Respones.INVALID_PARAMS);
 		return;
 	}
